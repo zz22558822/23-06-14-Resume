@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <title>映興電子-人員應徵履歷表</title>
+
+    <link rel="icon" href="images/Logo.png">
+
+    <meta name="author" content="chek">
+    <meta name="copyright" content="chek">
+    <meta name="generator" content="chek">
+    <meta name="description" content="資安系統">
+    <meta name="keywords" content="映興電子,人員應徵履歷表,映興電子-人員應徵履歷表,資安系統">
+
+    <meta property="og:title" content="映興電子-人員應徵履歷表">
+    <meta property="og:description" content="人員應徵履歷表">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" href="images/Logo.png">
+    <link href="images/Logo.png" rel="apple-touch-icon" />
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- CSS -->
+    <link rel='stylesheet' href='./css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./css/style.css">
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid-md mt-2">
+
+        <div id="header" class="header">
+          <img src="./images/logo_1.png" alt="Logo">
+          <!-- <h1 class="text-white font-weight-bold text-center">人員應徵履歷表</h1> -->
+        </div>
+
+
+        <!-- 氣泡提示 -->
+        <div id="myPopup" class="popup">
+          <span class="popup-content">請填寫紅框處資料</span>
+        </div>
+
+        <div class="row justify-content-center">
+    
+          <div class="col-12 col-md-10 col-lg-8">
+            <form id="msform">
+
+              <!-- 第1頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的大名是?</h3>
+                <input class="inputing Page_1" type="text" id="name" name="name" placeholder="請輸入姓名" />
+                <p></p>
+
+                <h3 class="fs-title">您的性別是?</h3>
+                <div class="radioBox Page_1">
+                  <dd>
+                    <input type="radio" name="gender" id="man" value="man">
+                    <label for="man">男生</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="gender" id="women" value="women">
+                    <label for="women">女生</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">您的身高為?</h3>
+                <input class="inputing Page_1" type="number" id="height" name="height" placeholder="請輸入身高(公分)" inputmode="numeric" oninput="if(value.length>3)value=value.slice(0,3);if(value>250)value=250" />
+                <p></p>
+
+                <h3 class="fs-title">您的體重為?</h3>
+                <input class="inputing Page_1" type="number" id="weight" name="weight" placeholder="請輸入體重(公斤)" inputmode="numeric" oninput="if(value.length>3)value=value.slice(0,3);if(value>250)value=250" />
+                <p></p>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第2頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">您的身分證是?</h3>
+                <input class="inputing Page_2" type="text" id="identity" name="ID" placeholder="請輸入身分證" oninput="if(value.length>3)value=value.slice(0,19)" />
+                <p></p>
+                
+                <h3 class="fs-title">您的籍貫是?</h3>
+                <input class="inputing Page_2" type="text" id="birthplace" name="birthplace" placeholder="請輸入籍貫" />
+                <p></p>
+
+                <h3 class="fs-title">您的出生日為?</h3>
+                <input class="inputing Page_2" type="date" id="birthday" name="birthday" placeholder="請輸入" min="1900-01-01" max="2015-12-31"/>
+                <p></p>
+
+                <h3 class="fs-title">您的血型是?</h3>
+                <div class="radioBox Page_2">
+                  <div class="radioBox2">
+                    <dd>
+                      <input type="radio" name="blood_type" id="A" value="A">
+                      <label for="A">A</label>
+                    </dd>
+                    <dd>
+                      <input type="radio" name="blood_type" id="B" value="B">
+                      <label for="B">B</label>
+                    </dd>
+                  </div>
+                  <div class="radioBox2">
+                    <dd>
+                      <input type="radio" name="blood_type" id="AB" value="AB">
+                      <label for="AB">AB</label>
+                    </dd>
+                    <dd>
+                      <input type="radio" name="blood_type" id="O" value="O">
+                      <label for="O">O</label>
+                    </dd>
+                  </div>
+                </div>
+                <p></p>
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第3頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您目前婚姻狀況為?</h3>
+                <div class="radioBox Page_3">
+                  <dd>
+                    <input type="radio" name="marriage" id="Married" value="Married">
+                    <label for="Married">已婚</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="marriage" id="unmarried" value="unmarried">
+                    <label for="unmarried">未婚</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="marriage" id="marriage_other" value="marriage_other">
+                    <label for="marriage_other">其他</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">您的電子信箱為?</h3>
+                <input class="inputing Page_3" type="email" id="weight" name="weight" placeholder="請輸入電子郵件" inputmode="numeric"/>
+                <p></p>
+
+                <h3 class="fs-title">您的聯絡地址為?</h3>
+                <input class="inputing Page_3" type="text" id="address" name="address" placeholder="請輸入聯絡地址" />
+                <p></p>
+
+                <h3 class="fs-title">您的永久住址為? (可空白)</h3>
+                <input class="inputing" type="text" id="permanent_address" name="permanent_address" placeholder="請輸入永久地址" />
+                <p></p>
+    
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第4頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">您的室內電話為? (可空白)</h3>
+                <input class="inputing" type="text" id="tel" name="tel" placeholder="請輸入電話" inputmode="numeric" />
+                <p></p>
+
+                <h3 class="fs-title">您的永久住址電話為? (可空白)</h3>
+                <input class="inputing" type="text" id="permanent_tel" name="permanent_tel" placeholder="請輸入電話" inputmode="numeric" />
+                <p></p>
+                
+                <h3 class="fs-title">您的手機號碼為?</h3>
+                <input class="inputing Page_4" type="text" id="phone" name="phone" placeholder="請輸入手機號碼" inputmode="numeric" />
+                <p></p>
+
+                <h3 class="fs-title">請上傳您的照片: </h3>
+                <input class="inputing Page_4" type="file" id="photo" name="photo">
+                
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第5頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">您的畢/肄業學校_1</h3>
+                <input class="inputing Page_5" type="text" id="school_name" name="school_name" placeholder="請輸入學校名稱" />
+                <div class="radioBox Page_5">
+                  <dd>
+                    <input type="radio" name="school_state" id="school_graduate" value="graduate">
+                    <label for="school_graduate">畢業</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="school_state" id="school_drop_out" value="drop_out">
+                    <label for="school_drop_out">肄業</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">您的畢/肄業學校_2 (可空白)</h3>
+                <input class="inputing" type="text" id="school_name_2" name="school_name_2" placeholder="請輸入學校名稱" />
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="school_state_2" id="school_graduate_2" value="graduate">
+                    <label for="school_graduate_2">畢業</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="school_state_2" id="school_drop_out_2" value="drop_out">
+                    <label for="school_drop_out_2">肄業</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">您的專長為?</h3>
+                <input class="inputing Page_5" type="text" id="expertise" name="expertise" placeholder="請輸入專長名稱" />
+
+                <h3 class="fs-title">您的擁有證照為?</h3>
+                <input class="inputing" type="text" id="license" name="license" placeholder="請輸入證照名稱" />
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第6頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的語言能力_1</h3>
+                <input class="inputing Page_6" type="text" id="language" name="language" placeholder="請輸入語言" />
+
+                <h3 class="fs-title">聽</h3>
+                <div class="radioBox Page_6">
+                  <dd>
+                    <input type="radio" name="language_level" id="proficient" value="proficient">
+                    <label for="proficient">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level" id="passable" value="passable">
+                    <label for="passable">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level" id="inferior" value="inferior">
+                    <label for="inferior">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">說</h3>
+                <div class="radioBox Page_6">
+                  <dd>
+                    <input type="radio" name="language_level_2" id="proficient_2" value="proficient">
+                    <label for="proficient_2">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_2" id="passable_2" value="passable">
+                    <label for="passable_2">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_2" id="inferior_2" value="inferior">
+                    <label for="inferior_2">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">讀</h3>
+                <div class="radioBox Page_6">
+                  <dd>
+                    <input type="radio" name="language_level_3" id="proficient_3" value="proficient">
+                    <label for="language_level_3">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_3" id="passable_3" value="passable">
+                    <label for="passable_3">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_3" id="inferior_3" value="inferior">
+                    <label for="inferior_3">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">寫</h3>
+                <div class="radioBox Page_6">
+                  <dd>
+                    <input type="radio" name="language_level_4" id="proficient_4" value="proficient">
+                    <label for="proficient_4">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_4" id="passable_4" value="passable">
+                    <label for="passable_4">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_4" id="inferior_4" value="inferior">
+                    <label for="inferior_4">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第7頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的語言能力_2 (可空白)</h3>
+                <input class="inputing" type="text" id="language" name="language" placeholder="請輸入語言" />
+
+                <h3 class="fs-title">聽</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="language_level" id="proficient" value="proficient">
+                    <label for="proficient">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level" id="passable" value="passable">
+                    <label for="passable">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level" id="inferior" value="inferior">
+                    <label for="inferior">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">說</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="language_level_2" id="proficient_2" value="proficient">
+                    <label for="proficient_2">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_2" id="passable_2" value="passable">
+                    <label for="passable_2">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_2" id="inferior_2" value="inferior">
+                    <label for="inferior_2">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">讀</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="language_level_3" id="proficient_3" value="proficient">
+                    <label for="language_level_3">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_3" id="passable_3" value="passable">
+                    <label for="passable_3">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_3" id="inferior_3" value="inferior">
+                    <label for="inferior_3">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">寫</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="language_level_4" id="proficient_4" value="proficient">
+                    <label for="proficient_4">精通</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_4" id="passable_4" value="passable">
+                    <label for="passable_4">尚可</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="language_level_4" id="inferior_4" value="inferior">
+                    <label for="inferior_4">不會</label>
+                  </dd>
+                </div>
+                <p></p>
+    
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第8頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的曾任職公司_1</h3>
+                <input class="inputing Page_8" type="text" id="company_1" name="company_1" placeholder="請輸入曾任職公司" />
+                <h3 class="fs-title">您的職稱為?</h3>
+                <input class="inputing" type="text" id="job_title_1" name="job_title_1" placeholder="請輸入職稱" />
+                <h3 class="fs-title">您的工作內容為?</h3>
+                <input class="inputing" type="text" id="work_content_1" name="work_content_1" placeholder="請輸入工作內容" />
+                <h3 class="fs-title">您的薪資為? (不含加班費、獎金)</h3>
+                <input class="inputing" type="text" id="salary_1" name="salary_1" inputmode="numeric" placeholder="請輸入薪資" />
+                <h3 class="fs-title">起迄年月</h3>
+                <div class="dateBox">
+                  <input class="inputing" type="month" id="working_start_1" name="working_start_1" placeholder="請輸入任職時間" />
+                  <h3 class="fs-title">~</h3>
+                  <input class="inputing" type="month" id="working_stop_1" name="working_stop_1" placeholder="請輸入卸職時間" />
+                </div>
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第9頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的曾任職公司_2</h3>
+                <input class="inputing" type="text" id="company_2" name="company_2" placeholder="請輸入曾任職公司" />
+                <h3 class="fs-title">您的職稱為?</h3>
+                <input class="inputing" type="text" id="job_title_2" name="job_title_2" placeholder="請輸入職稱" />
+                <h3 class="fs-title">您的工作內容為?</h3>
+                <input class="inputing" type="text" id="work_content_2" name="work_content_2" placeholder="請輸入工作內容" />
+                <h3 class="fs-title">您的薪資為? (不含加班費、獎金)</h3>
+                <input class="inputing" type="text" id="salary_2" name="salary_2" inputmode="numeric" placeholder="請輸入薪資" />
+                <h3 class="fs-title">起迄年月</h3>
+                <div class="dateBox">
+                  <input class="inputing" type="month" id="working_start_2" name="working_start_2" placeholder="請輸入任職時間" />
+                  <h3 class="fs-title">~</h3>
+                  <input class="inputing" type="month" id="working_stop_2" name="working_stop_2" placeholder="請輸入卸職時間" />
+                </div>
+    
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第10頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的曾任職公司_3</h3>
+                <input class="inputing" type="text" id="company_3" name="company_3" placeholder="請輸入曾任職公司" />
+                <h3 class="fs-title">您的職稱為?</h3>
+                <input class="inputing" type="text" id="job_title_3" name="job_title_3" placeholder="請輸入職稱" />
+                <h3 class="fs-title">您的工作內容為?</h3>
+                <input class="inputing" type="text" id="work_content_3" name="work_content_3" placeholder="請輸入工作內容" />
+                <h3 class="fs-title">您的薪資為? (不含加班費、獎金)</h3>
+                <input class="inputing" type="text" id="salary_3" name="salary_3" inputmode="numeric" placeholder="請輸入薪資" />
+                <h3 class="fs-title">起迄年月</h3>
+                <div class="dateBox">
+                  <input class="inputing" type="month" id="working_start_3" name="working_start_3" placeholder="請輸入任職時間" />
+                  <h3 class="fs-title">~</h3>
+                  <input class="inputing" type="month" id="working_stop_3" name="working_stop_3" placeholder="請輸入卸職時間" />
+                </div>
+    
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第11頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的家庭狀況_1</h3>
+                <p></p>
+                <h3 class="fs-title">關係</h3>
+                <input class="inputing" type="text" id="family_relation_1" name="family_relation_1" placeholder="請輸入與您的關係" />
+                <p></p>
+                <h3 class="fs-title">姓名</h3>
+                <input class="inputing" type="text" id="family_name_1" name="family_name_1" placeholder="請輸入家人姓名" />
+                <p></p>
+                <h3 class="fs-title">年齡</h3>
+                <input class="inputing" type="text" id="family_age_1" name="family_age_1" inputmode="numeric" placeholder="請輸入家人年齡" />
+                <p></p>
+                <h3 class="fs-title">職業</h3>
+                <input class="inputing" type="text" id="family_profession_1" name="family_profession_1" placeholder="請輸入家人職業" />
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第12頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的家庭狀況_2</h3>
+                <p></p>
+                <h3 class="fs-title">關係</h3>
+                <input class="inputing" type="text" id="family_relation_2" name="family_relation_2" placeholder="請輸入與您的關係" />
+                <p></p>
+                <h3 class="fs-title">姓名</h3>
+                <input class="inputing" type="text" id="family_name_2" name="family_name_2" placeholder="請輸入家人姓名" />
+                <p></p>
+                <h3 class="fs-title">年齡</h3>
+                <input class="inputing" type="text" id="family_age_2" name="family_age_2" inputmode="numeric" placeholder="請輸入家人年齡" />
+                <p></p>
+                <h3 class="fs-title">職業</h3>
+                <input class="inputing" type="text" id="family_profession_2" name="family_profession_2" placeholder="請輸入家人職業" />
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+    
+              <!-- 第13頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的家庭狀況_3</h3>
+                <p></p>
+                <h3 class="fs-title">關係</h3>
+                <input class="inputing" type="text" id="family_relation_3" name="family_relation_3" placeholder="請輸入與您的關係" />
+                <p></p>
+                <h3 class="fs-title">姓名</h3>
+                <input class="inputing" type="text" id="family_name_3" name="family_name_3" placeholder="請輸入家人姓名" />
+                <p></p>
+                <h3 class="fs-title">年齡</h3>
+                <input class="inputing" type="text" id="family_age_3" name="family_age_3" inputmode="numeric" placeholder="請輸入家人年齡" />
+                <p></p>
+                <h3 class="fs-title">職業</h3>
+                <input class="inputing" type="text" id="family_profession_3" name="family_profession_3" placeholder="請輸入家人職業" />
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+    
+              <!-- 第14頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">您的家庭狀況_4</h3>
+                <p></p>
+                <h3 class="fs-title">關係</h3>
+                <input class="inputing" type="text" id="family_relation_4" name="family_relation_4" placeholder="請輸入與您的關係" />
+                <p></p>
+                <h3 class="fs-title">姓名</h3>
+                <input class="inputing" type="text" id="family_name_4" name="family_name_4" placeholder="請輸入家人姓名" />
+                <p></p>
+                <h3 class="fs-title">年齡</h3>
+                <input class="inputing" type="text" id="family_age_4" name="family_age_4" inputmode="numeric" placeholder="請輸入家人年齡" />
+                <p></p>
+                <h3 class="fs-title">職業</h3>
+                <input class="inputing" type="text" id="family_profession_4" name="family_profession_4" placeholder="請輸入家人職業" />
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第15頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">是否欠下債務 :</h3>
+                <div class="radioBox Page_15">
+                  <dd>
+                    <input type="radio" name="debt" id="debt_yes" value="yes">
+                    <label for="debt_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="debt" id="debt_no" value="no">
+                    <label for="debt_no">否</label>
+                  </dd>
+                </div>
+                
+                <h3 class="fs-title">承上題，如是為何?</h3>
+                <input class="inputing" type="text" id="debt_yes_type" name="debt_yes_type" placeholder="如信用卡、稅款、貸款" />
+                <p></p>
+
+                <h3 class="fs-title">犯罪紀錄 :</h3>
+                <div class="radioBox Page_15">
+                  <dd>
+                    <input type="radio" name="crime" id="crime_yes" value="yes">
+                    <label for="crime_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="crime" id="crime_no" value="no">
+                    <label for="crime_no">否</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">訴訟紀錄 :</h3>
+                <div class="radioBox Page_15">
+                  <dd>
+                    <input type="radio" name="litigation" id="litigation_yes" value="yes">
+                    <label for="litigation_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="litigation" id="litigation_no" value="no">
+                    <label for="litigation_no">否</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <h3 class="fs-title">檢舉紀錄 :</h3>
+
+                <div class="radioBox Page_15">
+                  <dd>
+                    <input type="radio" name="report" id="report_yes" value="yes">
+                    <label for="report_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="report" id="report_no" value="no">
+                    <label for="report_no">否</label>
+                  </dd>
+                </div>
+                <p></p>
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+
+              <!-- 第16頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">是否願意配合公司人力資源用人政策，評核期三個月，若評核不適任或不適用，可接受自動離職 :</h3>
+                <div class="radioBox Page_16">
+                  <dd>
+                    <input type="radio" name="assessment_period" id="assessment_period_yes" value="yes">
+                    <label for="assessment_period_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="assessment_period" id="assessment_period_no" value="no">
+                    <label for="assessment_period_no">否</label>
+                  </dd>
+                </div>
+
+                <h3 class="fs-title">是否有介紹人 :</h3>
+                <div class="radioBox Page_16">
+                  <dd>
+                    <input type="radio" name="introducer" id="introducer_yes" value="yes">
+                    <label for="introducer_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="introducer" id="introducer_no" value="no">
+                    <label for="introducer_no">否</label>
+                  </dd>
+                </div>
+
+                <h3 class="fs-title">介紹人姓名 :</h3>
+                <input class="inputing" type="text" id="introducer_name" name="introducer_name" placeholder="請輸入介紹人姓名" />
+                <h3 class="fs-title">介紹人部門 :</h3>
+                <input class="inputing" type="text" id="introducer_department" name="introducer_department" placeholder="請輸入介紹人部門" />
+                <h3 class="fs-title">介紹人狀態 :</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="introducer_working" id="introducer_working_yes" value="yes">
+                    <label for="introducer_working_yes">在職中</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="introducer_working" id="introducer_working_no" value="no">
+                    <label for="introducer_working_no">已離職</label>
+                  </dd>
+                </div>
+
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+
+              <!-- 第17頁 -->
+              <fieldset class="rounded">
+                <h3 class="fs-title">曾與其他公司簽訂『營業秘密』</h3>
+                <div class="radioBox Page_17">
+                  <dd>
+                    <input type="radio" name="contract_secret" id="contract_secret_yes" value="yes">
+                    <label for="contract_secret_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="contract_secret" id="contract_secret_no" value="no">
+                    <label for="contract_secret_no">否</label>
+                  </dd>
+                </div>
+                <h3 class="fs-title">『營業秘密』目前狀態</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="contract_secret_type" id="contract_secret_expired" value="expired">
+                    <label for="contract_secret_expired">已過期</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="contract_secret_type" id="contract_secret_period" value="period">
+                    <label for="contract_secret_period">未過期</label>
+                  </dd>
+                </div>
+                <h3 class="fs-title">『營業秘密』截止日</h3>
+                <input class="inputing" type="date" id="contract_secret_date" name="contract_secret_date" placeholder="請輸入截止日" />
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第18頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">曾與其他公司簽訂『競業禁止』</h3>
+                <div class="radioBox Page_18">
+                  <dd>
+                    <input type="radio" name="contract_nonCompete" id="contract_nonCompete_yes" value="yes">
+                    <label for="contract_nonCompete_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="contract_nonCompete" id="contract_nonCompete_no" value="no">
+                    <label for="contract_nonCompete_no">否</label>
+                  </dd>
+                </div>
+                <h3 class="fs-title">『競業禁止』目前狀態</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="contract_nonCompete_type" id="contract_nonCompete_expired" value="expired">
+                    <label for="contract_nonCompete_expired">已過期</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="contract_nonCompete_type" id="contract_nonCompete_period" value="period">
+                    <label for="contract_nonCompete_period">未過期</label>
+                  </dd>
+                </div>
+                <h3 class="fs-title">『競業禁止』截止日</h3>
+                <input class="inputing" type="date" id="contract_nonCompete_date" name="contract_nonCompete_date" placeholder="請輸入截止日" />
+                
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第19頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">是否有簽訂其他約定</h3>
+                <div class="radioBox Page_19">
+                  <dd>
+                    <input type="radio" name="contract_other" id="contract_other_yes" value="yes">
+                    <label for="contract_other_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="contract_other" id="contract_other_no" value="no">
+                    <label for="contract_other_no">否</label>
+                  </dd>
+                </div>
+
+                <h3 class="fs-title">簽定約定名稱</h3>
+                <input class="inputing" type="text" id="contract_other_name" name="contract_other_name" placeholder="請輸入簽訂約定" />
+
+                <h3 class="fs-title">上述約定的目前狀態</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="contract_other_type" id="contract_other_expired" value="expired">
+                    <label for="contract_other_expired">已過期</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="contract_other_type" id="contract_other_period" value="period">
+                    <label for="contract_other_period">未過期</label>
+                  </dd>
+                </div>
+                <h3 class="fs-title">上述約定的截止日</h3>
+                <input class="inputing" type="date" id="contract_other_date" name="contract_other_date" placeholder="請輸入截止日" />
+
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第20頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">是否有疾病史</h3>
+                <div class="radioBox Page_20">
+                  <dd>
+                    <input type="radio" name="disease" id="disease_yes" value="yes">
+                    <label for="disease_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="disease" id="disease_no" value="no">
+                    <label for="disease_no">否</label>
+                  </dd>
+                </div>
+                <h3 class="fs-title">疾病史名稱為?</h3>
+                <input class="inputing" type="text" id="disease_name" name="disease_name" placeholder="請輸入敘述疾病史" />
+
+                <h3 class="fs-title">是否有配偶或二等親以內任職總子公司</h3>
+                <div class="radioBox Page_20">
+                  <dd>
+                    <input type="radio" name="relative_working" id="relative_working_yes" value="yes">
+                    <label for="relative_working_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="relative_working" id="relative_working_no" value="no">
+                    <label for="relative_working_no">否</label>
+                  </dd>
+                </div>
+
+                <h3 class="fs-title">親戚姓名 :</h3>
+                <input class="inputing" type="text" id="relative_working_name" name="relative_working_name" placeholder="請輸入親戚姓名" />
+                <h3 class="fs-title">任職部門 :</h3>
+                <input class="inputing" type="text" id="relative_working_department" name="relative_working_department" placeholder="請輸入任職部門" />
+                <h3 class="fs-title">任職狀態 :</h3>
+                <div class="radioBox">
+                  <dd>
+                    <input type="radio" name="relative_working_working" id="relative_working_working_yes" value="yes">
+                    <label for="relative_working_working_yes">在職中</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="relative_working_working" id="relative_working_working_no" value="no">
+                    <label for="relative_working_working_no">已離職</label>
+                  </dd>
+                </div>
+
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+
+              <!-- 第21頁 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">是否可配合加班</h3>
+                <div class="radioBox Page_21">
+                  <dd>
+                    <input type="radio" name="work_overtime" id="work_overtime_yes" value="yes">
+                    <label for="work_overtime_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="work_overtime" id="work_overtime_no" value="no">
+                    <label for="work_overtime_no">否</label>
+                  </dd>
+                </div>
+
+                <h3 class="fs-title">無法配合加班原因為何?</h3>
+                <input class="inputing" type="text" id="work_overtime_reason" name="work_overtime_reason" placeholder="請輸入原因" />
+                <p></p>
+
+                <h3 class="fs-title">是否願意配合公司組織需求或產業發展變化，調整個人職務內容及調任單位 :</h3>
+                <div class="radioBox Page_21">
+                  <dd>
+                    <input type="radio" name="work_transfer" id="work_transfer_yes" value="yes">
+                    <label for="work_transfer_yes">是</label>
+                  </dd>
+                  <dd>
+                    <input type="radio" name="work_transfer" id="work_transfer_no" value="no">
+                    <label for="work_transfer_no">否</label>
+                  </dd>
+                </div>
+
+                <h3 class="fs-title">期望待遇</h3>
+                <input class="inputing Page_21" type="number" id="expected_salary" name="expected_salary" placeholder="請輸入期望待遇" inputmode="numeric" />
+
+                <h3 class="fs-title">預計上班日期</h3>
+                <input class="inputing Page_21" type="date" id="working_day" name="working_day" placeholder="請輸入預計上班日" min="2023-01-01"  max="2100-01-01"/>
+
+
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="button" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">下一步</button>
+              </fieldset>
+
+              <!-- 第22頁 送出頁面 -->
+              <fieldset class="rounded">
+
+                <h3 class="fs-title">條約</h3>
+                <h4>1. 本人允許審查本表所填各項內容，如有虛報情事願接受公司解除勞動合同處分，且補需公司承擔任何經濟賠償。</h4>
+                <p></p>
+                <h4>2. 本人保證所提供之身分證及學歷證均為真實，如提供虛假證件一切後果自負</h4>
+                <p></p>
+                <h4>3. 確認送出後表示均同意以上條約</h4>
+                <p></p>
+    
+                <button type="button" name="previous" class="previous rounded btn btn-md My-Button-see-live-2 px-4 p-2 m-md-0 my-2">上一步</button>
+                <button type="submit" name="next" class="next rounded btn btn-md My-Button-see-live px-5 p-2 float-right">確定送出</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    <!-- 進度條 -->
+    <div class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar-fill"><p></p></div>
+    </div>
+
+    <!--JS載入-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/all.js"></script>
+
+  </body>
+</html>

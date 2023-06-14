@@ -1,0 +1,370 @@
+// @import './mixin/RWD';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // 統一字型 FireFox 也能正常大小顯示
+    font-family: "Times New Roman";
+  }
+  body {
+    overflow-x: hidden;
+    font-family: Poppins, "san-serif";
+  }
+  
+  // scrollbar 設定
+  // 設定滾動條的寬度和顏色
+  ::-webkit-scrollbar {
+    width: 8px; // 設定滾動條的寬度
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f5f5; // 設定滾動條軌道的背景顏色
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888; // 設定滾動條的顏色
+  }
+  // 滑鼠移過滾動條時的顏色
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; // 設定滑鼠移過滾動條時的顏色
+  }
+  // 設定滾動條圓角和陰影效果
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px; // 設定滾動條的圓角
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); // 設定滾動條的陰影效果
+  }
+
+  
+  fieldset {
+    box-shadow: hsla(0, 0%, 0%, 0.14) 0px 20px 40px 0px;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8), 0px 0px 10px rgba(255, 255, 255, 0.6);
+  
+    // 送出的最後一頁特別色彩
+    &.submitPage{
+      border: 5px  #9C4DCC;
+      box-shadow: 0px 0px 0px 5px #ff9f68;
+      h3{
+        font-size: 46px;
+        text-align: center;
+        user-select: none;
+      }
+      h4{
+        font-size: 36px;
+        font-weight: bold;
+        transition: all 0.2s;
+        transform:scale(0.8);
+        user-select: none;
+        &:hover{
+          color: #ff9f68;
+          transform:scale(0.9);
+          transition: all 0.5s;
+        }
+      }
+      .next{
+        background: #f85959 !important;
+      }
+    }
+
+  }
+  
+  // 簡約CSS reset
+  * {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .My-Button-see-live {
+    background-color: #26cfc2 !important;
+    color: white !important;
+    border: #26cfc2 solid 0.5px !important;
+    border-radius: 0px !important;
+    border: none !important;
+  }
+  
+  .My-Button-see-live-2 {
+    background-color: white !important;
+    color: #26cfc2 !important;
+    border: #26cfc2 solid 0.5px !important;
+    font-weight: 500 !important;
+    border-radius: 0px !important;
+  }
+  
+  .My-Button-see-live:hover,
+  .My-Button-see-live:active {
+    background-color: #20bdb0;
+    color: white;
+    border: #26cfc2 solid 0.5px;
+    border-radius: 0px;
+  }
+  
+  .My-Button-see-live-2:hover,
+  .My-Button-see-live-2:active {
+    background-color: #20bdb0;
+    color: white;
+    border: #26cfc2 solid 0.5px;
+    border-radius: 0px;
+  }
+  
+  // 背景
+  html {
+    background: #222;
+  }
+  
+  body {
+    font-family: Poppins, "san-serif";
+    background: transparent;
+  }
+  
+  // 表單樣式
+  #msform {
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  #msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+  
+    // 互相堆疊
+    position: relative;
+  }
+  
+  // 隱藏第一區塊外所有
+  #msform fieldset:not(:first-of-type) {
+    display: none;
+  }
+  
+  // 輸入框
+  #msform .inputing,
+  #msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 20px;
+  }
+  
+  #msform .inputing:focus,
+  #msform textarea:focus {
+    // -moz-box-shadow: none !important;
+    // -webkit-box-shadow: none !important;
+    // box-shadow: none !important;
+    -moz-box-shadow: 0 0 0 5px #26cfc2 !important;
+    -webkit-box-shadow: 0 0 0 5px #26cfc2 !important;
+    box-shadow: 0 0 0 5px #26cfc2 !important;
+    border: 1px solid #26cfc2;
+    outline-width: 0;
+    transition: All 0.2s ease-in;
+    -webkit-transition: All 0.2s ease-in;
+    -moz-transition: All 0.2s ease-in;
+    -o-transition: All 0.2s ease-in;
+  }
+  // 單選框
+  .radioBox, .radioBox2{
+    width: 100%;
+    display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    dd{
+      width: 100%;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-top: 0.5rem;
+      input{
+        margin-left: 10px;
+        transform:scale(1.5);
+      }
+      label{
+        font-size: 20px;
+        width: 89%;
+        padding: 10px;
+        margin: 0;
+      }
+      &:hover{
+        border-radius: 20px;
+        background: rgba(38,207,194,0.2);
+        transition: all 0.7s;
+      }
+    }
+  }
+
+  .dateBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .inputing{
+      width: 45% !important;
+    }
+  }
+
+
+
+
+  // 下一步按鈕
+  button.next{
+    font-weight:bold;
+    font-size: 24px;
+    transition: all 0.7s;
+
+    //光罩效果
+    outline: none;
+    overflow: hidden;
+    // text-transform: uppercase;
+
+    //光罩效果
+    &:after {
+      content: '';
+        display: block;
+        position: absolute;
+        top: -36px;
+        left: -100%;
+        background: white;
+        width: 50px;
+        height: 125px;
+        opacity: 50%;
+        transform: rotate(-45deg);
+    }
+
+    &:hover{
+      transform:scale(1.1);
+      //光罩效果
+      &:after {
+        left: 120%;
+        transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+         -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+      }
+    }
+  }
+
+  // 上一步按鈕
+  button.previous{
+    font-weight:bold;
+    font-size: 24px;
+    transition: all 0.7s;
+    margin: 0 !important;
+    &:hover{
+      transform:scale(1.1);
+      opacity: 0.8;
+    }
+
+  }
+
+  // 題目標題
+  .fs-title {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  
+  .fs-subtitle {
+    font-weight: normal;
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  #header{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    img{
+      width: 80%;
+      max-width: 276px;
+      margin: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+    h1{
+      // margin: 50px 0 0 0;
+      font-size: 35px;
+      user-select: none;
+    }
+  }
+
+  // .text-white.font-weight-bold.text-center{
+  //   margin: 50px 0 0 0;
+  //   font-size: 4em;
+  //   user-select: none;
+  // }
+
+  .row{
+    margin: 0;
+  }
+
+
+  // 提示氣泡
+  .popup {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #666;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 999;
+    user-select: none;
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .popup-content {
+      display: block;
+      margin: 10px;
+      font-size: 36px;
+    }
+  }
+
+  // 進度條
+  // 進度條外框
+  .progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background-color: #d6d6d6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    // 進度條填充
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #4caf50;
+      transition: width 0.3s ease-in-out;
+
+      p{
+        // font-size: 20px;
+        margin-left: 10px;
+        color: #fff;
+        padding-top: 3px;
+        height: 30px;
+        text-align: center;
+        font-weight: bold;
+        transform:scale(1.6);
+        user-select: none;
+      }
+    }
+  }
