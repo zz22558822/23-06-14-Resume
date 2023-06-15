@@ -1,3 +1,4 @@
+// @import 'reset';
 // @import './mixin/RWD';
 
 *{
@@ -182,6 +183,7 @@
       border-radius: 20px;
       white-space: nowrap;
       margin-top: 0.5rem;
+      
       input{
         margin-left: 10px;
         transform:scale(1.5);
