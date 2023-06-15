@@ -144,9 +144,11 @@ function checkData(pageNum) {
 	  if (inputs[i].value === '') {
 		noData++;
 		inputs[i].style.boxShadow = '0 0 0 5px red'; // 使用 box-shadow 屬性添加紅色框線
+		inputs[i].style.webkitBoxShadow = '0 0 0 5px red'; // Safari 的 -webkit-box-shadow 屬性
 		inputs[i].addEventListener('input', clearInputBorder); // 添加事件監聽器
 	  } else {
 		inputs[i].style.boxShadow = 'none'; // 清除 box-shadow 樣式
+		inputs[i].style.webkitBoxShadow = 'none'; // Safari 的清除 box-shadow 屬性
 	  }
 	}
   
@@ -161,9 +163,11 @@ function checkData(pageNum) {
 	  if (!isSelected) {
 		noData++;
 		radioBoxes[i].style.boxShadow = '0 0 0 5px red'; // 使用 box-shadow 屬性添加紅色框線
+		radioBoxes[i].style.webkitBoxShadow = '0 0 0 5px red'; // Safari 的 -webkit-box-shadow 屬性
 		radioBoxes[i].addEventListener('click', clearRadioBorder); // 添加事件監聽器
 	  } else {
 		radioBoxes[i].style.boxShadow = 'none'; // 清除 box-shadow 樣式
+		radioBoxes[i].style.webkitBoxShadow = 'none'; // Safari 的清除 box-shadow 屬性
 	  }
 	}
   
@@ -174,10 +178,12 @@ function checkData(pageNum) {
   // 清除 input 的紅色框線
   function clearInputBorder() {
 	this.style.boxShadow = 'none';
+	this.style.webkitBoxShadow = 'none';
   }
   // 清除 radioBox 的紅色框線
   function clearRadioBorder() {
 	this.style.boxShadow = 'none';
+	this.style.webkitBoxShadow = 'none';
   }
 
 
