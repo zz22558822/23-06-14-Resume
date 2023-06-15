@@ -229,6 +229,11 @@ body {
   width: 45% !important;
 }
 
+.redBorder {
+  box-shadow: 0 0 0 5px red;
+  -webkit-box-shadow: 0 0 0 5px red;
+}
+
 button.next {
   font-weight: bold;
   font-size: 24px;

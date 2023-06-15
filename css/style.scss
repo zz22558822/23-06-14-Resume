@@ -210,6 +210,11 @@
     }
   }
 
+  // 紅框
+  .redBorder{
+    box-shadow: 0 0 0 5px red;
+    -webkit-box-shadow: 0 0 0 5px red;
+  }
 
 
 
@@ -368,3 +373,4 @@
       }
     }
   }
+
