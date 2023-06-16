@@ -143,11 +143,13 @@ function checkData(pageNum) {
 	for (let i = 0; i < inputs.length; i++) {
 	  if (inputs[i].value === '') {
 		noData++;
+		inputs[i].style.outline = '5px solid red'; // 使用 outline 屬性添加紅色框線
 		inputs[i].style.boxShadow = '0 0 0 5px red'; // 使用 box-shadow 屬性添加紅色框線
 		inputs[i].style.webkitBoxShadow = '0 0 0 5px red'; // Safari 的 -webkit-box-shadow 屬性
 		inputs[i].classList.add('redBorder');
 		inputs[i].addEventListener('input', clearInputBorder); // 添加事件監聽器
 	  } else {
+		inputs[i].style.outline = 'none'; // 使用 outline 屬性添加紅色框線
 		inputs[i].style.boxShadow = 'none'; // 清除 box-shadow 樣式
 		inputs[i].style.webkitBoxShadow = 'none'; // Safari 的清除 box-shadow 屬性
 		inputs[i].classList.remove('redBorder');
@@ -164,11 +166,13 @@ function checkData(pageNum) {
   
 	  if (!isSelected) {
 		noData++;
+		radioBoxes[i].style.outline = '5px solid red'; // 使用 outline 屬性添加紅色框線
 		radioBoxes[i].style.boxShadow = '0 0 0 5px red'; // 使用 box-shadow 屬性添加紅色框線
 		radioBoxes[i].style.webkitBoxShadow = '0 0 0 5px red'; // Safari 的 -webkit-box-shadow 屬性
 		inputs[i].classList.add('redBorder');
 		radioBoxes[i].addEventListener('click', clearRadioBorder); // 添加事件監聽器
 	  } else {
+		radioBoxes[i].style.outline = 'none'; // 使用 outline 屬性添加紅色框線
 		radioBoxes[i].style.boxShadow = 'none'; // 清除 box-shadow 樣式
 		radioBoxes[i].style.webkitBoxShadow = 'none'; // Safari 的清除 box-shadow 屬性
 		inputs[i].classList.remove('redBorder');
@@ -181,12 +185,14 @@ function checkData(pageNum) {
   
   // 清除 input 的紅色框線
   function clearInputBorder() {
+	this.style.outline = 'none';
 	this.style.boxShadow = 'none';
 	this.style.webkitBoxShadow = 'none';
 	inputs[i].classList.remove('redBorder');
   }
   // 清除 radioBox 的紅色框線
   function clearRadioBorder() {
+	this.style.outline = 'none';
 	this.style.boxShadow = 'none';
 	this.style.webkitBoxShadow = 'none';
 	inputs[i].classList.remove('redBorder');
