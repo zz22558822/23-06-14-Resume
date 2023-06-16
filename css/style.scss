@@ -1,5 +1,5 @@
 // @import 'reset';
-// @import './mixin/RWD';
+@import './mixin/RWD';
 
 *{
     margin: 0;
@@ -136,6 +136,16 @@
   
     // 互相堆疊
     position: relative;
+    
+    @include mobile-414{
+      width: 100%;
+      margin: 0;
+      padding: 20px 15px;
+    }
+  }
+  
+  .col-12.col-md-10.col-lg-8{
+    padding: 0 5px;
   }
   
   // 隱藏第一區塊外所有
@@ -215,14 +225,7 @@
     }
   }
 
-  // 紅框
-  .redBorder{
-    box-shadow: 0 0 0 5px red !important;
-    -webkit-box-shadow: 0 0 0 5px red !important;
-  }
-
-
-
+  
   // 下一步按鈕
   button.next{
     font-weight:bold;
@@ -256,6 +259,13 @@
         transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
          -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
       }
+      @include mobile-414{
+        transform:scale(1.05);
+      }
+    }
+
+    @include mobile-414{
+      width: 100%;
     }
   }
 
@@ -268,6 +278,11 @@
     &:hover{
       transform:scale(1.1);
       opacity: 0.8;
+    }
+
+    @include mobile-414{
+      width: 100%;
+      margin-bottom: 10px !important;
     }
 
   }
@@ -345,6 +360,10 @@
       display: block;
       margin: 10px;
       font-size: 36px;
+
+      @include mobile-414{
+        font-size: 32px;
+      }
     }
   }
 
