@@ -229,6 +229,9 @@ function updateProgressBar(nowPage, pageNum) {
 }
 
 // 手機返回鍵優化成上一頁
+window.addEventListener('pageshow', function(event) {
+	window.history.forward();
+  });
 window.addEventListener('beforeunload', function(event) {
 	if (nowPage !== 1) {
 	  const backButton = document.querySelector('.previous');
