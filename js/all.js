@@ -227,3 +227,35 @@ function updateProgressBar(nowPage, pageNum) {
 	const progressText = progressBar.querySelector("p");
 	progressText.textContent = Math.ceil(parseFloat(progressWidth)) + "%";
 }
+
+// 手機返回鍵優化成上一頁
+window.addEventListener('beforeunload', function(event) {
+	if (nowPage !== 1) {
+	  const backButton = document.querySelector('.previous');
+	  if (backButton) {
+		backButton.click();
+		event.preventDefault();
+		event.returnValue = '';  // 要求設置 returnValue 以兼容某些舊版瀏覽器
+	  }
+	}
+  });
+
+// 輸入確認偵測換行
+function setupNextInputOnEnter(inputs) {
+	for (let i = 0; i < inputs.length; i++) {
+	  inputs[i].addEventListener('keydown', function(event) {
+		const key = event.key || event.keyCode;
+  
+		if (key === 'Enter' || key === 13) {
+		  event.preventDefault(); // 防止提交表單
+		  const nextIndex = i + 1;
+  
+		  if (nextIndex < inputs.length) {
+			inputs[nextIndex].focus();
+		  }
+		}
+	  });
+	}
+  }
+  const inputs = document.querySelectorAll('.inputing');
+	setupNextInputOnEnter(inputs);
