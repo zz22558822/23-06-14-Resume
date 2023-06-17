@@ -1,7 +1,7 @@
 /* RWD用 */
 @mixin pad-768{
     @media(max-width:768px){
-    @content;
+        @content;
     }
 }
 @mixin mobile-414{
@@ -11,12 +11,12 @@
 }
 @mixin mobile-375{
     @media(max-width:375px){
-    @content;
+        @content;
     }
 }
 @mixin mobile-480{
     @media(max-width:480px){
-    @content;
+        @content;
     }
 }
 @mixin mobile-620{
@@ -26,6 +26,11 @@
 }
 @mixin mobile-767{
     @media(max-width:767px){
+        @content;
+    }
+}
+@mixin mobile-768{
+    @media(max-width:768px){
         @content;
     }
 }
@@ -39,12 +44,12 @@
 // 專為 2F工程電視使用
 @mixin mobile-958{
     @media(max-width:958px){
-    @content;
+        @content;
     }
 }
 @mixin mobile-962{
     @media(max-width:962px){
-    @content;
+        @content;
     }
 }
 

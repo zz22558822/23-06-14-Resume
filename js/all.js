@@ -62,6 +62,10 @@ $(".next").click(function(){
 		}, 3000);
 	}
 
+	// // 移動到未填寫資料的位置 Demo 可移除
+	// let offsetTop = current_fs.offset().top;
+	// $('html, body').animate({scrollTop: offsetTop}, 600);
+
 });
 
 $(".previous").click(function(){
@@ -199,10 +203,20 @@ function checkData(pageNum) {
   }
 
 
-// 計算進度條寬度的函數
+// // 計算進度條寬度的函數 v1 會超過100%
+// function calculateProgress(nowPage, pageNum) {
+// 	return (nowPage / pageNum) * 100 + "%";
+// }
+
+
+// 計算進度條寬度的函數 v2 限制最大100%
 function calculateProgress(nowPage, pageNum) {
-	return (nowPage / pageNum) * 100 + "%";
-}
+	let progress = (nowPage / pageNum) * 100;
+	if (progress > 100) {
+	  progress = 100; // 如果超过100%，将进度限制为100%
+	}
+	return progress + "%";
+  }
 
 // 更新進度條寬度的函數
 function updateProgressBar(nowPage, pageNum) {

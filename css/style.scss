@@ -123,7 +123,15 @@
   #msform {
     position: relative;
     margin-top: 30px;
+
+    @include mobile-768{
+      margin-top: 5px;
+    }
+    @include mobile-414{
+      margin-top: 5px;
+    }
   }
+  
   
   #msform fieldset {
     background: white;
@@ -137,6 +145,11 @@
     // 互相堆疊
     position: relative;
     
+    @include mobile-768{
+      width: 90%;
+      margin: 0 5%;
+      padding: 20px 15px;
+    }
     @include mobile-414{
       width: 100%;
       margin: 0;
@@ -215,6 +228,10 @@
     }
   }
 
+  .radioBox2{
+    margin-bottom: 0;
+  }
+
   .dateBox{
     width: 100%;
     display: flex;
@@ -231,6 +248,7 @@
     font-weight:bold;
     font-size: 24px;
     transition: all 0.7s;
+    border-radius: 8px !important;
 
     //光罩效果
     outline: none;
@@ -259,32 +277,95 @@
         transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
          -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
       }
+
+      @include mobile-768{
+        transform:scale(1.05);
+      }
       @include mobile-414{
         transform:scale(1.05);
       }
     }
 
+    i{
+      margin-left: 10px;
+      margin-bottom: 0;
+      @include mobile-414{
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 15px;
+      }
+    }
+
+    @include mobile-768{
+      width: 65%;
+
+      &.w100{
+        width: 100%;
+      }
+    }
     @include mobile-414{
       width: 100%;
+      position: relative;
     }
+
   }
 
   // 上一步按鈕
   button.previous{
+    position: relative;
     font-weight:bold;
     font-size: 24px;
     transition: all 0.7s;
     margin: 0 !important;
+    border-radius: 8px !important;
+
     &:hover{
       transform:scale(1.1);
       opacity: 0.8;
+
+      @include mobile-768{
+        transform:scale(1.05);
+      }
+      @include mobile-414{
+        transform:scale(1.05);
+      }
     }
 
+    i{
+      margin-right: 10px;
+      margin-bottom: 0;
+
+      @include mobile-414{
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 15px;
+      }
+    }
+
+    @include mobile-768{
+      width: 25%;
+      margin-bottom: 10px !important;
+      span{
+        display: none;
+      }
+    }
     @include mobile-414{
       width: 100%;
+      position: relative;
       margin-bottom: 10px !important;
+      span{
+        display: inline;
+      }
     }
 
+  }
+
+  .btn.focus, .btn:focus{
+    box-shadow: none;
   }
 
   // 題目標題
@@ -386,7 +467,7 @@
 
       p{
         // font-size: 20px;
-        margin-left: 10px;
+        // margin-left: 10px; //改RWD顯示
         color: #fff;
         padding-top: 3px;
         height: 30px;
@@ -394,6 +475,12 @@
         font-weight: bold;
         transform:scale(1.6);
         user-select: none;
+        
+        // 因字體顯示會過於靠左 版面過小就外推 10px
+        @include mobile-1300{
+          margin-left: 10px;
+        }
+
       }
     }
   }
