@@ -431,6 +431,13 @@ button.previous i {
   font-weight: bold;
 }
 
+.fs-title .required {
+  font-weight: bold;
+  font-size: 30px;
+  color: red;
+  padding-left: 5px;
+}
+
 .fs-subtitle {
   font-weight: normal;
   font-size: 24px;

@@ -7,11 +7,14 @@ const button = document.getElementById("myButton");
 const popup = document.getElementById("myPopup");
 
 
+
 //尾頁更換色彩分布
 document.querySelectorAll('fieldset')[pageNum-1].classList.add('submitPage')
 
 //進度條重置
 updateProgressBar(nowPage, pageNum)
+//強調必填資料
+emphasize()
 
 $(".next").click(function(){
 	if(animating) return false;
@@ -228,22 +231,22 @@ function updateProgressBar(nowPage, pageNum) {
 	progressText.textContent = Math.ceil(parseFloat(progressWidth)) + "%";
 }
 
-// 手機返回鍵優化成上一頁
-window.addEventListener('pageshow', function(event) {
-	window.history.forward();
-  });
-window.addEventListener('beforeunload', function(event) {
-	if (nowPage !== 1) {
-	  const backButton = document.querySelector('.previous');
-	  if (backButton) {
-		backButton.click();
-		event.preventDefault();
-		event.returnValue = '';  // 要求設置 returnValue 以兼容某些舊版瀏覽器
-	  }
-	}
-  });
+// // 手機返回鍵優化成上一頁 因為瀏覽器強制性 這邊測試失敗所以註解掉
+// window.addEventListener('pageshow', function(event) {
+// 	window.history.forward();
+//   });
+// window.addEventListener('beforeunload', function(event) {
+// 	if (nowPage !== 1) {
+// 	  const backButton = document.querySelector('.previous');
+// 	  if (backButton) {
+// 		backButton.click();
+// 		event.preventDefault();
+// 		event.returnValue = '';  // 要求設置 returnValue 以兼容某些舊版瀏覽器
+// 	  }
+// 	}
+//   });
 
-// 輸入確認偵測換行
+// 輸入確認偵測換行 無跳轉按鈕功能
 function setupNextInputOnEnter(inputs) {
 	for (let i = 0; i < inputs.length; i++) {
 	  inputs[i].addEventListener('keydown', function(event) {
@@ -260,5 +263,62 @@ function setupNextInputOnEnter(inputs) {
 	  });
 	}
   }
-  const inputs = document.querySelectorAll('.inputing');
-	setupNextInputOnEnter(inputs);
+  const inputs = document.querySelectorAll('input');
+  setupNextInputOnEnter(inputs);
+
+// // 必填題目標註星號且紅色 已縮減
+// function emphasize() {
+// 	// 找到所有帶有 "Page_" class 的 input 元素
+// 	const inputs = document.querySelectorAll('input[class*="Page_"]');
+// 	// 遍歷每個 input 元素
+// 	inputs.forEach(input => {
+// 	// 找到前一個元素
+// 	const prevHeading = input.previousElementSibling;
+// 	// 檢查前一個元素是否存在且為 'H3' 標籤
+// 	if (prevHeading && prevHeading.tagName === 'H3') {
+// 		// 創建一個 <span> 元素
+// 		const span = document.createElement('span');
+// 		// 添加 'required' class
+// 		span.className = 'required';
+// 		// 設定 <span> 元素的文字內容為 '*'
+// 		span.textContent = '*';
+// 		// 將 <span> 元素添加到前一個元素 ('H3' 標籤) 中
+// 		prevHeading.appendChild(span);
+// 	}
+// 	});
+// 	// 找到所有帶有 "Page_" class 的 div 元素
+// 	const divs = document.querySelectorAll('div[class*="Page_"]');
+// 	// 遍歷每個 div 元素
+// 	divs.forEach(div => {
+// 	// 找到前一個元素
+// 	const prevHeading_div = div.previousElementSibling;
+// 	// 檢查前一個元素是否存在且為 'H3' 標籤
+// 	if (prevHeading_div && prevHeading_div.tagName === 'H3') {
+// 		// 創建一個 <span> 元素
+// 		const span = document.createElement('span');
+// 		// 添加 'required' class
+// 		span.className = 'required';
+// 		// 設定 <span> 元素的文字內容為 '*'
+// 		span.textContent = '*';
+// 		// 將 <span> 元素添加到前一個元素 ('H3' 標籤) 中
+// 		prevHeading_div.appendChild(span);
+// 	}
+// 	});
+// }
+
+
+// 必填題目標註星號且紅色 採用陣列縮減程式碼
+function emphasize() {
+	const elements = document.querySelectorAll('input[class*="Page_"], div[class*="Page_"]');
+	
+	elements.forEach(element => {
+	  const prevHeading = element.previousElementSibling;
+	  
+	  if (prevHeading && prevHeading.tagName === 'H3') {
+		const span = document.createElement('span');
+		span.className = 'required';
+		span.textContent = '*';
+		prevHeading.appendChild(span);
+	  }
+	});
+  }
