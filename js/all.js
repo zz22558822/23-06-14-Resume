@@ -2,19 +2,18 @@ let current_fs, next_fs, previous_fs;
 let left, opacity, scale;
 let animating; //防快速多點
 let nowPage = 1; //頁面值 上下一步隨之增減
+let timeoutId; // 氣泡框重置用
+let today = new Date().toISOString().split('T')[0]; //取得今天日期
 let pageNum = document.querySelectorAll('fieldset').length;
 const button = document.getElementById("myButton");
 const popup = document.getElementById("myPopup");
 
 
+// 氣泡框監控
+popup.addEventListener("click", function() {
+    popup.classList.remove("show");
+});
 
-//尾頁更換色彩分布
-document.querySelectorAll('fieldset')[pageNum-1].classList.add('submitPage')
-
-//進度條重置
-updateProgressBar(nowPage, pageNum)
-//強調必填資料
-emphasize()
 
 $(".next").click(function(){
 	if(animating) return false;
@@ -30,6 +29,8 @@ $(".next").click(function(){
 	
 		//顯示下一個輸入表
 		next_fs.show(); 
+		// 移動到頂部的位置
+		scrollToTargetPosition();
 		//Css隱藏輸入完成
 		current_fs.animate({opacity: 0}, {
 			step: function(now, mx) {
@@ -58,9 +59,11 @@ $(".next").click(function(){
 
 	} else {
 		animating = false //按下觸發失敗後初始化
+		// 取消之前的定时器（如果存在）
+		clearTimeout(timeoutId);
 		// alert('資料無填寫')
 		popup.classList.add("show");
-		setTimeout(function() {
+		timeoutId =setTimeout(function() {
 		  popup.classList.remove("show");
 		}, 3000);
 	}
@@ -82,6 +85,8 @@ $(".previous").click(function(){
 	
 	//顯示上一步
 	previous_fs.show(); 
+	// 移動到頂部的位置
+	scrollToTargetPosition();
 	//Css隱藏目前表單
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -111,6 +116,12 @@ $(".submit").click(function(){
 	return false;
 })
 
+//移動視窗當前位置的副程式
+function scrollToTargetPosition() {
+	$('html,body').animate({
+		scrollTop: 95
+	  },150);
+}
 
 // // 副程式判斷是否寫入資料 初始版本
 // function checkData(pageNum) {
@@ -321,4 +332,28 @@ function emphasize() {
 		prevHeading.appendChild(span);
 	  }
 	});
-  }
+}
+
+//更新預計上班日最小值
+function workingDayUpdate() {
+	// 取得預計上班日的 input 元素
+	let workingDayInput = document.getElementById("working_day");
+	// 更新 min 屬性的值為今天日期
+	workingDayInput.min = today;
+}
+
+// 初始化
+function __init__() {
+
+	//尾頁更換色彩分布
+	document.querySelectorAll('fieldset')[pageNum-1].classList.add('submitPage')
+	//進度條重置
+	updateProgressBar(nowPage, pageNum)
+	//更新預計上班日最小值
+	workingDayUpdate()
+	//強調必填資料
+	emphasize()
+
+}
+
+__init__()
