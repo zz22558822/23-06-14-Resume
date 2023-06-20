@@ -14,7 +14,8 @@ const popup = document.getElementById("myPopup");
 // 氣泡框監控
 popup.addEventListener("click", function() {
     popup.classList.remove("show"); //移除顯示
-	progressBar.style.width = "0%";
+	clearInterval(progressInterval);
+	progressBar.style.width = "100%";
 });
 
 
@@ -28,7 +29,6 @@ $(".next").click(function(){
 	// 按鈕觸發檢查 並使用累計方式帶入數值
 	if (checkData(nowPage) == 0 ) {
 		// alert('資料均已填寫')
-		$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 	
 		//顯示下一個輸入表
 		next_fs.show(); 
@@ -57,6 +57,13 @@ $(".next").click(function(){
 		//下一步隨之增加頁面值
 		nowPage = nowPage + 1
 
+		//通過後重置
+		
+		popup.classList.remove("show"); //移除顯示
+		clearInterval(progressInterval);
+		progressBar.style.width = "100%";
+
+
 		// 更新進度條
 		updateProgressBar(nowPage, pageNum);
 
@@ -68,6 +75,7 @@ $(".next").click(function(){
 		clearInterval(progressInterval);
 		// 重置進度條為初始狀態
 		progressBar.style.width = "100%";
+
 		// 添加倒數進度條
 		progressInterval = setInterval(function() {
 		let width = parseInt(progressBar.style.width);
@@ -78,12 +86,12 @@ $(".next").click(function(){
 			popup.classList.remove("show");
 		}
 		}, 30);
-
-		// alert('資料無填寫')
-		popup.classList.add("show"); //顯示氣泡顯示框
+		// 3秒後隱藏氣泡提示框
 		timeoutId =setTimeout(function() {
 		  popup.classList.remove("show");
 		}, 3000);
+
+		popup.classList.add("show"); //顯示氣泡顯示框
 	}
 
 	// // 移動到未填寫資料的位置 Demo 可移除
@@ -92,14 +100,13 @@ $(".next").click(function(){
 
 });
 
+
 $(".previous").click(function(){
 	if(animating) return false;
 	animating = true;
 	
 	current_fs = $(this).parent();
 	previous_fs = $(this).parent().prev();
-	
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 	
 	//顯示上一步
 	previous_fs.show(); 
