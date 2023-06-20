@@ -190,7 +190,7 @@ body {
 #msform textarea {
   padding: 15px;
   border: 1px solid #ccc;
-  border-radius: 0px;
+  border-radius: 5px;
   margin-bottom: 20px;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -219,6 +219,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 5px;
 }
 
 .radioBox dd, .radioBox2 dd {
@@ -226,6 +227,10 @@ body {
   border-radius: 20px;
   white-space: nowrap;
   margin-top: 0.5rem;
+}
+
+.radioBox dd input[type="radio"], .radioBox dd label, .radioBox2 dd input[type="radio"], .radioBox2 dd label {
+  cursor: pointer;
 }
 
 .radioBox dd input, .radioBox2 dd input {
@@ -499,8 +504,8 @@ button.previous i {
   text-align: center;
   border-radius: 6px;
   padding: 8px;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   z-index: 999;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -517,12 +522,27 @@ button.previous i {
   display: block;
   margin: 10px;
   font-size: 36px;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 414px) {
   .popup .popup-content {
     font-size: 32px;
   }
+}
+
+.popup .progress-bar {
+  height: 5px;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 0;
+  border-radius: 2px;
+}
+
+.popup:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  cursor: pointer;
 }
 
 .progress-bar-container {

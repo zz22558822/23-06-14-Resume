@@ -3,6 +3,8 @@ let left, opacity, scale;
 let animating; //防快速多點
 let nowPage = 1; //頁面值 上下一步隨之增減
 let timeoutId; // 氣泡框重置用
+let progressInterval; // 定義進度條的全局變數
+let progressBar = document.querySelector(".progress-bar"); // 定義進度條的全局變數
 let today = new Date().toISOString().split('T')[0]; //取得今天日期
 let pageNum = document.querySelectorAll('fieldset').length;
 const button = document.getElementById("myButton");
@@ -11,7 +13,8 @@ const popup = document.getElementById("myPopup");
 
 // 氣泡框監控
 popup.addEventListener("click", function() {
-    popup.classList.remove("show");
+    popup.classList.remove("show"); //移除顯示
+	progressBar.style.width = "0%";
 });
 
 
@@ -59,10 +62,25 @@ $(".next").click(function(){
 
 	} else {
 		animating = false //按下觸發失敗後初始化
-		// 取消之前的定时器（如果存在）
+		// 取消顯示 show 的定時器
 		clearTimeout(timeoutId);
+		// 清除進度條定時器
+		clearInterval(progressInterval);
+		// 重置進度條為初始狀態
+		progressBar.style.width = "100%";
+		// 添加倒數進度條
+		progressInterval = setInterval(function() {
+		let width = parseInt(progressBar.style.width);
+		width -= 1;
+		progressBar.style.width = width + "%";
+		if (width <= 0) {
+			clearInterval(progressInterval);
+			popup.classList.remove("show");
+		}
+		}, 30);
+
 		// alert('資料無填寫')
-		popup.classList.add("show");
+		popup.classList.add("show"); //顯示氣泡顯示框
 		timeoutId =setTimeout(function() {
 		  popup.classList.remove("show");
 		}, 3000);
@@ -111,10 +129,6 @@ $(".previous").click(function(){
 	updateProgressBar(nowPage, pageNum);
 });
 
-//送出後的程式修改位置
-$(".submit").click(function(){
-	return false;
-})
 
 //移動視窗當前位置的副程式
 function scrollToTargetPosition() {
@@ -341,6 +355,15 @@ function workingDayUpdate() {
 	// 更新 min 屬性的值為今天日期
 	workingDayInput.min = today;
 }
+
+
+
+//送出後的程式修改位置
+$(".submit").click(function(){
+	return false;
+})
+
+
 
 // 初始化
 function __init__() {

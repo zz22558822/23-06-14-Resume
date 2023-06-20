@@ -171,7 +171,7 @@
   #msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 5px;
     margin-bottom: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -202,6 +202,7 @@
   .radioBox, .radioBox2{
     width: 100%;
     display: flex;
+    border-radius: 5px;
     // justify-content: space-between;
     // align-items: center;
     dd{
@@ -209,6 +210,10 @@
       border-radius: 20px;
       white-space: nowrap;
       margin-top: 0.5rem;
+
+      input[type="radio"], label{
+        cursor: pointer;
+      }
       
       input{
         margin-left: 10px;
@@ -437,7 +442,8 @@
     text-align: center;
     border-radius: 6px;
     padding: 8px;
-    transition: opacity 0.3s ease-in-out;
+    // transition: opacity 0.3s ease-in-out;
+    transition: all 0.3s;
     z-index: 999;
     user-select: none;
     &.show {
@@ -448,10 +454,22 @@
       display: block;
       margin: 10px;
       font-size: 36px;
+      margin-bottom: 5px;
 
       @include mobile-414{
         font-size: 32px;
       }
+    }
+    .progress-bar {
+      height: 5px;
+      background-color: #fff;
+      width: 100%;
+      margin-bottom: 0;
+      border-radius: 2px;
+    }
+    &:hover{
+      transform:scale(1.05);
+      cursor: pointer;
     }
   }
 
