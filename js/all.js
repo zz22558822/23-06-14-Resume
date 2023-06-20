@@ -14,8 +14,7 @@ const popup = document.getElementById("myPopup");
 // 氣泡框監控
 popup.addEventListener("click", function() {
     popup.classList.remove("show"); //移除顯示
-	clearInterval(progressInterval);
-	progressBar.style.width = "100%";
+	progressBar.style.width = "0%";
 });
 
 
@@ -57,13 +56,6 @@ $(".next").click(function(){
 		//下一步隨之增加頁面值
 		nowPage = nowPage + 1
 
-		//通過後重置
-		
-		popup.classList.remove("show"); //移除顯示
-		clearInterval(progressInterval);
-		progressBar.style.width = "100%";
-
-
 		// 更新進度條
 		updateProgressBar(nowPage, pageNum);
 
@@ -99,7 +91,6 @@ $(".next").click(function(){
 	// $('html, body').animate({scrollTop: offsetTop}, 600);
 
 });
-
 
 $(".previous").click(function(){
 	if(animating) return false;
